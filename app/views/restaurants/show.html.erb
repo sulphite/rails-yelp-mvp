@@ -7,18 +7,19 @@
   </div>
 </div>
 
+<h4 class="my-3">all reviews</h4>
 <ul class="list-group">
   <% @restaurant.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
+    <li class="list-group-item">
+      <strong><%= review.rating %> / 5</strong>
+      <%= review.content %>
+    </li>
   <% end %>
 </ul>
 
+<h4>add a review:</h4>
 <%= simple_form_for([@restaurant, @review]) do |f| %>
   <%= f.input :content %>
   <%= f.input :rating %>
   <%= f.submit %>
 <% end %>
-
-
-<%= link_to "add a review", new_restaurant_review_path(@restaurant) %>
-<%= link_to "all restaurants", restaurants_path %>

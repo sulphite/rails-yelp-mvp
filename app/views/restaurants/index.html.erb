@@ -1,7 +1,10 @@
+<h2>restaurants index</h2>
+<ul class="list-group my-3">
 <% @restaurants.each do |restaurant| %>
-  <li>
-  <%= link_to restaurant.name, restaurant_path(restaurant) %>
+  <li class="list-group-item">
+  <%= link_to restaurant.name, restaurant_path(restaurant), class: "text-decoration-none" %>
   </li>
 <% end %>
+</ul>
 
-<%= link_to "add new restaurant", new_restaurant_path %>
+<%= link_to "add new restaurant", new_restaurant_path, class: "btn btn-outline-primary" %>
